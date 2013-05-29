@@ -73,8 +73,7 @@ def createDrop():
 	size_id = raw_input("Size: ")
 	image_id = raw_input("Image ID: ")
 	region_id = raw_input("Region ID: ")
-	ssh_key_id = [raw_input("SSH Key ID: ")]
-	droplet = client.create_droplet(name, size_id, image_id, region_id, ssh_key_id, virtio=True);
+	droplet = client.create_droplet(name, size_id, image_id, region_id, None, virtio=True);
 	print droplet.to_json()
 
 def createDownpour():
@@ -83,9 +82,8 @@ def createDownpour():
         size_id = raw_input("Size: ")
         image_id = raw_input("Image ID: ")
         region_id = raw_input("Region ID: ")
-	ssh_key_id = raw_input("SSH Key ID: ")
         for i in range(0, number):
-		droplet = client.create_droplet("%s%03d" % (name, i), size_id, image_id, region_id, ssh_key_id, virtio=True);
+		droplet = client.create_droplet("%s%03d" % (name, i), size_id, image_id, region_id, None, virtio=True);
         	print "%d : %s" % (i, droplet.to_json())
 
 def displayDownpour():
