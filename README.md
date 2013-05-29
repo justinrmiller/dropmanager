@@ -12,6 +12,7 @@ pip install dop
 cd /<directory with dropmanager>
 
 cp config-example.ini config.ini
+
 vim config.ini
 
 python dropmanager.py
