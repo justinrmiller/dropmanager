@@ -5,7 +5,7 @@ This a very much a work in progress.
 
 A Python script for managing Drops on Digital Ocean.
 
-The main prompt (a downpour is a set of vms, <name>000-<name>xyz:<br>
+The main prompt (a downpour is a set of vms, <name>000-<name>xyz):<br>
 Options:<br>
 1) List Active Droplets<br>
 2) List Available Sizes<br>
