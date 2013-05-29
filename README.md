@@ -1,4 +1,4 @@
-dropmanager - Very much a work in progress!
+dropmanager - Beta!
 ===========
 
 A Python script for managing Drops on Digital Ocean.
