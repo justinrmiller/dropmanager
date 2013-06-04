@@ -13,6 +13,8 @@ Options:<br>
 4) List Available Regions<br>
 5) Create Drop<br>
 6) Destroy Drop<br>
+7) Install HAProxy<br>
+8) Deploy code<br>
 10) Create Downpour<br>
 11) Display Downpour<br>
 12) Destroy Downpour<br>
