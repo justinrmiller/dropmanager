@@ -30,11 +30,6 @@ print "Client ID and API key retrieved."
 client = Client(clientID, apiKey)
 droplets = client.show_active_droplets()
 
-print "Displaying SSH Key Options:"
-sshkeys = client.all_ssh_keys()
-for sshkey in sshkeys:
-	print sshkey.to_json()
-
 def printOptions():
 	print ""
         print "Options:"
@@ -51,6 +46,13 @@ def printOptions():
 	print "12) Destroy Downpour"
         print "q) Quit"
 	print ""
+
+def listSSHKeys():
+	print "Displaying SSH Keys:"	
+	sshkeys = client.all_ssh_keys()
+	for sshkey in sshkeys:
+        	print sshkey.to_json()
+
 
 def listDroplets():
 	droplets = client.show_active_droplets()
@@ -75,21 +77,29 @@ def listAvailableRegions():
 
 def createDrop():
 	name = raw_input("Name: ")
+	listAvailableSizes()
 	size_id = raw_input("Size: ")
+	listAvailableImages()
 	image_id = raw_input("Image ID: ")
+	listAvailableRegions()
 	region_id = raw_input("Region ID: ")
+	listSSHKeys()	
 	ssh_key_id = [raw_input("SSH Key ID: ")]
 	droplet = client.create_droplet(name, size_id, image_id, region_id, ssh_key_id, virtio=True);
 	print droplet.to_json()
 
 def createDownpour():
 	number = int(raw_input("Number: "))
-	name = raw_input("Name: ")
+        name = raw_input("Name: ")
+        listAvailableSizes()
         size_id = raw_input("Size: ")
+        listAvailableImages()
         image_id = raw_input("Image ID: ")
+        listAvailableRegions()
         region_id = raw_input("Region ID: ")
-	ssh_key_id = [raw_input("SSH Key ID: ")]
-        for i in range(0, number):
+        listSSHKeys()
+        ssh_key_id = [raw_input("SSH Key ID: ")]
+	for i in range(0, number):
 		droplet = client.create_droplet("%s%03d" % (name, i), size_id, image_id, region_id, ssh_key_id, virtio=True);
         	print "%d : %s" % (i, droplet.to_json())
 
